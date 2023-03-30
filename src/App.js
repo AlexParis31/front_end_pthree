@@ -1,25 +1,81 @@
-import logo from './logo.svg';
 import './App.css';
+import {useEffect, useState} from 'react'
+import axios from 'axios'
+import Car from './component/Cars'
+import Add from './component/Add'
+import Edit from './component/Edit'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+  const [cars, setCars] = useState([])
+
+  const getCars = () => {
+    axios.get('http://localhost:3000/cars')
+    .then((response) => setCars(response.data), (err) => console.log(err))
+    .catch((error) => console.log(error))
+  }
+
+  const handleCreate = (data) => {
+    axios.post('http://localhost:3000/cars', data)
+    .then((response) => {
+       console.log(response)
+       let newCars = [...cars, response.data]
+       setCars(newCars)
+    })
+ }
+
+
+ const handleDelete = (deletedCar) => {
+  axios.delete('http://localhost:3000/cars/' + deletedCar._id)
+  .then((response) => {
+   let newCar = cars.filter((car) => {
+      return car._id !== deletedCar._id
+   })
+     
+   setCars(newCar)
+  })
 }
 
-export default App;
+
+
+ 
+  const handleEdit = (data) => {
+    axios.put('http://localhost:3000/cars/' + data._id, data)
+    .then((response) => {
+      let newCars = cars.map((car) => {
+        return car._id !== data._id ? car : data
+      })
+      setCars(newCars)
+    })
+  }
+
+  useEffect(() => {
+    getCars()
+  }, [])
+  
+
+
+
+  return (
+  <>
+    <h1 class="title">Cars</h1>
+
+    <div class="add"><Add handleCreate={handleCreate}/></div>
+
+    {cars.map((car) => {
+      return (
+        <div class="container">
+          <Car cars={car}/>
+          <div class="edit"><Edit cars={car} handleEdit={handleEdit} /></div>
+          <button class="delete" onClick={()=>{handleDelete(car)}}>DELETE</button>
+        </div>
+      )
+    })}
+  </>
+  )
+}
+
+
+export default App
+
+
