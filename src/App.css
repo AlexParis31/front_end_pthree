@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 body {
-  background-color: antiquewhite;
+  background-color: rgba(14, 23, 12, 0.57);
 }
 
 .title {
@@ -13,7 +13,8 @@ body {
 .addForm {
   margin: 2em;
   padding: 2em;
-  background-color:rgb(232, 213, 182);
+  background-color:rgba(62, 190, 124, 0.508);
+  text-decoration: underline;
 }
 
 input {
@@ -43,7 +44,9 @@ input {
 }
 
 .container {
-  background-color: rgba(53, 11, 11, 0.702);
+  display: inline-block;
+  background-color: rgba(149, 6, 6, 0.131);
+  border: 2px solid green;
   margin: 2em 8em;
 }
 
@@ -56,7 +59,8 @@ input {
 .make {
   font-family: 'Orbitron', sans-serif;
   font-size: 70px;
-  color: rgb(223, 177, 177);
+  text-decoration: underline;
+  color: rgba(56, 58, 53, 0.81);
   margin: 50px 0 10px 0;
 }
 
@@ -69,7 +73,7 @@ input {
 }
 
 .image {
-  width:60em;
+  width:55%;
   height: 30em;
 }
 
