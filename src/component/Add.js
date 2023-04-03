@@ -2,7 +2,9 @@ import {useState} from 'react'
 
 
 const Add = (props) => {
+
     const [cars, setCars] = useState({image: '', year: '', make: '', model: '', class: '', price: 0})
+
 
      
    const handleChange = (event) => {
@@ -13,6 +15,7 @@ const Add = (props) => {
     event.preventDefault()
     props.handleCreate(cars)
  }
+
 
 
 
@@ -43,6 +46,7 @@ const Add = (props) => {
 
   </details>
   )
+
 }
 
 export default Add
