@@ -34,9 +34,6 @@ input {
 
 
 
-
-
-
 .cars {
   display: flex;
   flex-direction: column;
