@@ -17,6 +17,7 @@ const Edit = (props) => {
       <details>
       <summary>Edit</summary>
         <form onSubmit={handleSubmit}>
+
           <label htmlFor='image'>Image:</label>
           <input type='text' name='image' onChange={handleChange}/>
           <br/>
@@ -37,6 +38,7 @@ const Edit = (props) => {
           <br/>
           <input type="submit"/>
         </form>
+
       </details>
     </>
   )

@@ -8,15 +8,18 @@ import Edit from './component/Edit'
 const App = () => {
 
   const [cars, setCars] = useState([])
+  
+  
 
   const getCars = () => {
     axios.get('http://localhost:3000/cars')
     .then((response) => setCars(response.data), (err) => console.log(err))
-    .catch((error) => console.log(error))
   }
 
+ 
+
   const handleCreate = (data) => {
-    axios.post('http://localhost:3000/cars', data)
+    axios.post('http://localhost:3000/cars/', data)
     .then((response) => {
        console.log(response)
        let newCars = [...cars, response.data]
@@ -28,11 +31,11 @@ const App = () => {
  const handleDelete = (deletedCar) => {
   axios.delete('http://localhost:3000/cars/' + deletedCar._id)
   .then((response) => {
-   let newCar = cars.filter((car) => {
+   let newCars = cars.filter((car) => {
       return car._id !== deletedCar._id
    })
      
-   setCars(newCar)
+   setCars(newCars)
   })
 }
 
@@ -50,14 +53,12 @@ const App = () => {
   }
 
   useEffect(() => {
-    getCars()
+    getCars();
   }, [])
   
-
-
-
   return (
   <>
+
     <h1 class="title">Cars Website</h1>
 
     <div class="add"><Add handleCreate={handleCreate}/></div>
@@ -67,9 +68,11 @@ const App = () => {
       return (
         car.year <= 2016 ?
         <div class="container">
+
           <Car cars={car}/>
-          <div class="edit"><Edit cars={car} handleEdit={handleEdit} /></div>
-          <button class="delete" onClick={()=>{handleDelete(car)}}>DELETE</button>
+          <div className="edit"><Edit cars={car} handleEdit={handleEdit} /> 
+          <button className="delete" onClick={()=>{handleDelete(car)}}>DELETE</button></div>
+         
         </div>
         :
         <></>
