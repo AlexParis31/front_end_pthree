@@ -7,6 +7,7 @@ import Edit from './component/Edit'
 
 const App = () => {
 
+  const [carClass, setCarClass] = useState(true)
   const [cars, setCars] = useState([])
 
   const getCars = () => {
@@ -49,6 +50,18 @@ const App = () => {
     })
   }
 
+
+  const standardOn = () => {
+    setCarClass(true)
+  }
+
+  const standardOff = () => {
+    setCarClass(false)
+  }
+
+
+  
+
   useEffect(() => {
     getCars()
   }, [])
@@ -62,33 +75,41 @@ const App = () => {
 
     <div class="add"><Add handleCreate={handleCreate}/></div>
 
-    <h1>Before 2016</h1>
-    {cars.map((car) => {
-      return (
-        car.year <= 2016 ?
-        <div class="container">
-          <Car cars={car}/>
-          <div class="edit"><Edit cars={car} handleEdit={handleEdit} /></div>
-          <button class="delete" onClick={()=>{handleDelete(car)}}>DELETE</button>
-        </div>
-        :
-        <></>
-      )
-    })}
+    <button class="standardBtn" onClick={standardOn}>Standard Cars</button>
+    <button class="luxuryBtn" onClick={standardOff}>Luxury Cars</button>
 
-    <h1>After 2016</h1>
-    {cars.map((car) => {
-      return (
-        car.year >= 2016 ?
-        <div class="container">
-          <Car cars={car}/>
-          <div class="edit"><Edit cars={car} handleEdit={handleEdit} /></div>
-          <button class="delete" onClick={()=>{handleDelete(car)}}>DELETE</button>
-        </div>
-        :
-        <></>
-      )
-    })}
+    {carClass ?
+    <>
+      {cars.map((car) => {
+        return (
+          car.class === "Standard" ?
+          <div class="container">
+            <Car cars={car}/>
+            <div class="edit"><Edit cars={car} handleEdit={handleEdit} /></div>
+            <button class="delete" onClick={()=>{handleDelete(car)}}>DELETE</button>
+          </div>
+          :
+          <></>
+    
+        )
+      })} 
+    </>
+    :
+    <>
+      {cars.map((car) => {
+        return (
+          car.class === "Luxury" ?
+          <div class="container">
+            <Car cars={car}/>
+            <div class="edit"><Edit cars={car} handleEdit={handleEdit} /></div>
+            <button class="delete" onClick={()=>{handleDelete(car)}}>DELETE</button>
+          </div>
+          :
+          <></>
+        )
+      })} 
+    </> 
+    }
   </>
   )
 }
