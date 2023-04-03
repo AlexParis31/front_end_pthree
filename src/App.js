@@ -76,9 +76,11 @@ const App = () => {
 
     <div class="add"><Add handleCreate={handleCreate}/></div>
 
-
-    <button class="standardBtn" onClick={standardOn}>Standard Cars</button>
-    <button class="luxuryBtn" onClick={standardOff}>Luxury Cars</button>
+    <div class="buttons">
+      <button class="standardBtn" onClick={standardOn}>Standard Cars</button>
+      <button class="standardBtn" onClick={standardOff}>Luxury Cars</button>
+    </div>
+   
 
    
 
