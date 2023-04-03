@@ -1,41 +1,85 @@
-.add{
-  background-color: aqua;
-  /* display: none; */
 
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+body {
+  background-color: antiquewhite;
 }
+
+.title {
+  text-align: center;
+  font-size: 60px;
+}
+
+.addForm {
+  margin: 2em;
+  padding: 2em;
+  background-color:rgb(232, 213, 182);
+}
+
+input {
+  margin: 0.5em;
+}
+
+.edit {
+  font-size: 20px;
+  margin: 2em;
+  color: aliceblue;
+}
+
+.delete {
+  align-self: center;
+  margin: 0 0 3em 3em;
+}
+
+
 
 
 
 
 .cars {
   display: flex;
-  grid-template-rows: max-content 200px 1fr;
-  flex-direction: row;
-  border: 2px solid black;
-  width: 50%;
- 
-}
-
-.image{
-  width: 80%;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
-  
-  background-color: aqua;
+  background-color: rgba(53, 11, 11, 0.702);
+  margin: 2em 8em;
 }
 
-.title {
-  text-align: center;
-  border: 1px solid black;
+
+.header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.make {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 70px;
+  color: rgb(223, 177, 177);
+  margin: 50px 0 10px 0;
+}
+
+.model {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 40px;
+  margin: auto 5px;
+  color: rgb(244, 233, 233);
   
+}
+
+.image {
+  width:60em;
+  height: 30em;
 }
 
 .year {
-  text-decoration: underline;
+  font-size: 20px;
+  color: aliceblue;
 }
 
-
-
-
+.price {
+  font-size: 20px;
+  color:aliceblue
+}
 

@@ -58,22 +58,38 @@ const App = () => {
   
   return (
   <>
-    <h1 className="title">Cars</h1> 
 
-   
-    <div className="add">
-     <Add handleCreate={handleCreate}/></div>
-       
-     
+    <h1 class="title">Cars Website</h1>
+
+    <div class="add"><Add handleCreate={handleCreate}/></div>
+
+    <h1>Before 2016</h1>
     {cars.map((car) => {
       return (
-        
-        <div className="container">
+        car.year <= 2016 ?
+        <div class="container">
+
           <Car cars={car}/>
           <div className="edit"><Edit cars={car} handleEdit={handleEdit} /> 
           <button className="delete" onClick={()=>{handleDelete(car)}}>DELETE</button></div>
          
         </div>
+        :
+        <></>
+      )
+    })}
+
+    <h1>After 2016</h1>
+    {cars.map((car) => {
+      return (
+        car.year >= 2016 ?
+        <div class="container">
+          <Car cars={car}/>
+          <div class="edit"><Edit cars={car} handleEdit={handleEdit} /></div>
+          <button class="delete" onClick={()=>{handleDelete(car)}}>DELETE</button>
+        </div>
+        :
+        <></>
       )
     })}
   </>

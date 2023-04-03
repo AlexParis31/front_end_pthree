@@ -1,16 +1,16 @@
 const Car = (props) => {
     return(
      <div class="cars">
-        <h3 class="year">{props.cars.year}</h3>
-       <img class="image" src={props.cars.image}></img>
-     
-       <p class="make">Make:{props.cars.make} </p>
-       <br/>
-        <p class="model">Model: {props.cars.model}</p>
-        <br/>
-        <p class="class">Class: {props.cars.class}</p>
-        <br/>
-        <p class="price">Price: {props.cars.price}</p>
+
+        <h1 class="make">{props.cars.make} </h1>
+        <div class="header">
+          <h3 class="model">{props.cars.model}</h3>
+          <h3 class="model">Class-{props.cars.class} </h3>
+        </div>
+        <img class="image" src={props.cars.image}></img>
+        <p class="year">Year: {props.cars.year} </p>
+        <p class="price">${props.cars.price} </p>
+
 
      </div>
     )
