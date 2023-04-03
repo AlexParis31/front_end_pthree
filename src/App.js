@@ -80,21 +80,7 @@ const App = () => {
     <button class="standardBtn" onClick={standardOn}>Standard Cars</button>
     <button class="luxuryBtn" onClick={standardOff}>Luxury Cars</button>
 
-    <h1>Before 2016</h1>
-    {cars.map((car) => {
-      return (
-        car.year <= 2016 ?
-        <div class="container">
-
-          <Car cars={car}/>
-          <div className="edit"><Edit cars={car} handleEdit={handleEdit} /> 
-          <button className="delete" onClick={()=>{handleDelete(car)}}>DELETE</button></div>
-         
-        </div>
-        :
-        <></>
-      )
-    })}
+   
 
 
     {carClass ?
