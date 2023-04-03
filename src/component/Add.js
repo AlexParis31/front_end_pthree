@@ -3,6 +3,7 @@ import {useState} from 'react'
 
 const Add = (props) => {
     const [cars, setCars] = useState({name: '', conference: '', logo: '', rank: ''})
+    const [hidden1, setHidden1] = useState("hidden");
 
      
    const handleChange = (event) => {
@@ -18,21 +19,29 @@ const Add = (props) => {
 
  return(
     <>
+    <div className={hidden1}>
       <form onSubmit={handleSubmit}>
-  <label htmlFor='name'>Name:</label>
-  <input type='text' name='name' onChange={handleChange}/>
+      
+  <label htmlFor='image'>Image:</label>
+  <input type='text' name='image' onChange={handleChange}/>
   <br/>
-  <label htmlFor='conference'>Conference:</label>
-  <input type='text' name='conference' onChange={handleChange}/>
+  <label htmlFor='year'>Year:</label>
+  <input type='text' name='year' onChange={handleChange}/>
   <br/>
-  <label htmlFor='logo'>Logo:</label>
-  <input type='text' name='logo' onChange={handleChange}/>
+  <label htmlFor='make'>Make:</label>
+  <input type='text' name='make' onChange={handleChange}/>
   <br/>
-  <label htmlFor='Rank'>Seed:</label>
-  <input type='text' name='rank' onChange={handleChange}/>
+  <label htmlFor='model'>Model:</label>
+  <input type='text' name='model' onChange={handleChange}/>
+  <br/>
+  <label htmlFor='class'>Class:</label>
+  <input type='text' name='class' onChange={handleChange}/>
+  <br/>
+  <label htmlFor='price'>Price:</label>
+  <input type='text' name='price' onChange={handleChange}/>
   <input type="submit"/>
 </form>
-
+</div>
     </>
    )
 }
