@@ -72,7 +72,7 @@ const App = () => {
   return (
   <>
 
-    <h1 class="title">Cars Website</h1>
+    <h1 class="title">Cars Catalogue</h1>
 
     <div class="add"><Add handleCreate={handleCreate}/></div>
 
