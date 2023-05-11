@@ -33,9 +33,6 @@ input {
 
 
 
-
-
-
 .cars {
   display: flex;
   flex-direction: column;
@@ -44,7 +41,8 @@ input {
 
 .container {
   background-color: rgba(149, 6, 6, 0.131);
-  margin: 2em 8em;
+  margin: 2em 2em;
+  width: 20em;
 }
 
 
@@ -55,22 +53,22 @@ input {
 
 .make {
   font-family: 'Orbitron', sans-serif;
-  font-size: 70px;
+  font-size: 40px;
   color: rgba(56, 58, 53, 0.81);
   margin: 50px 0 10px 0;
 }
 
 .model {
   font-family: 'Orbitron', sans-serif;
-  font-size: 40px;
+  font-size: 20px;
   margin: auto 5px;
   color: rgb(244, 233, 233);
   
 }
 
 .image {
-  width:60em;
-  height: 35em;
+  width:20em;
+  height: 10em;
 }
 
 .year {
@@ -109,4 +107,9 @@ input {
   color: #fff;
   background-color: #1ED760;
   height: 48px;
+}
+
+.flexy {
+  display: flex;
+  flex-wrap: wrap;
 }

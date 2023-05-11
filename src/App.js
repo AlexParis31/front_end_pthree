@@ -84,7 +84,7 @@ const App = () => {
 
    
 
-
+    <div class="flexy">
     {carClass ?
     <>
       {cars.map((car) => {
@@ -117,8 +117,11 @@ const App = () => {
       })} 
     </> 
     }
+    </div>
   </>
+  
   )
+  
 }
 
 
